@@ -8,18 +8,12 @@ import org.json.JSONArray;
 class App {
 
     public static void main(String[] args) throws URISyntaxException
-    {
-        
-       
+    {       
         System.out.println("=====Kurswert[€]-Top5=====\n");
         printlist("price", "EUR");
-
-        
-        
-
-        //System.out.println("=====TopMover[%]-Top5=====");
-
-  
+        System.out.println("=====TopMover[%]-Top5=====");
+        printlist("percent_change_24h", "EUR");
+          
     }
 
 
