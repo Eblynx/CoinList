@@ -15,9 +15,9 @@ public class HttpClientCoin
     private static final String apiKey = "ab1ef4d4-7ad7-4c7f-838c-d2d8b13112c0";
 
 
-    public static JSONArray httpStart(String type, String waehrung) throws URISyntaxException
+    public static JSONArray httpStart(String type, String waehrung, int limit) throws URISyntaxException
     {    
-        URI uri = new URI("https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?cryptocurrency_type=tokens&sort="+type+"&convert="+waehrung);
+        URI uri = new URI("https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?cryptocurrency_type=tokens&sort="+type+"&convert="+waehrung+"&limit="+limit);
         try 
         {
             HttpRequest req = HttpRequest
