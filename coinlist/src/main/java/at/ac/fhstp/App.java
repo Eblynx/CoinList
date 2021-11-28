@@ -16,8 +16,6 @@ class App {
           
     }
 
-
-
     public static void printlist(String type, String waehrung) throws URISyntaxException
     {
         
