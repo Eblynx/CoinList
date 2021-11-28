@@ -1,8 +1,8 @@
 package at.ac.fhstp;
 
+import static org.junit.Assert.assertTrue;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import org.junit.platform.commons.annotation.Testable;
+import org.junit.Test;
 
 /**
  * Unit test for simple App.
@@ -10,9 +10,9 @@ import org.junit.platform.commons.annotation.Testable;
 public class AppTest 
 {
     /**
-     * Rigorous Test :-)
+     * Rigorous Test :-) @is191310
      */
-    @Testable
+    @Test
     public void shouldAnswerWithTrue()
     {
         assertTrue( true );
