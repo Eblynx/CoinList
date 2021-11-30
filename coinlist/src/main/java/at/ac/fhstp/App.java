@@ -10,39 +10,37 @@ class App {
     public static void main(String[] args) throws URISyntaxException
     {       
         String price = "price";
-        String waehrung = "EUR";
+        String currency = "EUR";
         String percent_change_24h = "percent_change_24h";
-        int limit = 5;
+        int limit = 150;
         
-        JSONArray jarray = HttpClientCoin.httpStart(price, waehrung, limit);
+        JSONArray jarray = HttpClientCoin.httpStart(price, currency, limit);
 
         System.out.println("=====Kurswert[EUR]-Top"+limit+"=====");      
-        printlist(jarray, price, waehrung);
+        printlist(jarray, price, currency);
         
         System.out.println("=====TopMover[%]-Top"+limit+"=====");
-        filter(jarray, percent_change_24h, waehrung);
- 
-          
+        sort(jarray, percent_change_24h, currency);
     }
 
-    public static void printlist(JSONArray jarray, String type, String waehrung) throws URISyntaxException
+    public static void printlist(JSONArray jarray, String type, String currency) throws URISyntaxException
     {       
         for(int i=0; i < jarray.length(); ++i)
         {
             System.out.print("Token: "+jarray.getJSONObject(i).getString("name")+" | "+type+": ");
-            System.out.println(jarray.getJSONObject(i).getJSONObject("quote").getJSONObject(waehrung).getDouble(type));
+            System.out.println(jarray.getJSONObject(i).getJSONObject("quote").getJSONObject(currency).getDouble(type));
         }
     }
     
-    public static void filter(JSONArray jarray, String type, String waehrung) throws URISyntaxException
+    public static void sort(JSONArray jarray, String type, String currency) throws URISyntaxException
     {       
         IntStream.range(0, jarray.length())
         .mapToObj(i -> (JSONObject) jarray.getJSONObject(i))
-        .sorted((i,j)-> Double.compare(j.getJSONObject("quote").getJSONObject(waehrung).getDouble(type), i.getJSONObject("quote").getJSONObject(waehrung).getDouble(type)))
+        .sorted((i,j)-> Double.compare(j.getJSONObject("quote").getJSONObject(currency).getDouble(type), i.getJSONObject("quote").getJSONObject(currency).getDouble(type)))
         .forEach(i -> 
         {
             System.out.print("Token: "+i.getString("name")+" | "+type+": ");
-            System.out.println(i.getJSONObject("quote").getJSONObject(waehrung).getDouble(type));
+            System.out.println(i.getJSONObject("quote").getJSONObject(currency).getDouble(type));
         });
     }
        
