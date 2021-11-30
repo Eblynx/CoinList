@@ -14,13 +14,19 @@ class App {
 
     public static void main(String[] args) throws URISyntaxException
     {       
-        System.out.println("=====Kurswert[EUR]-Top5=====");
+        String price = "price";
+        String waehrung = "EUR";
+        String percent_change_24h = "percent_change_24h";
+        int limit = 5;
         
-        JSONArray list = HttpClientCoin.httpStart("price", "EUR", 5);
-        printlist(list, "price", "EUR");
-        list = sortTopMover(list, "percent_change_24h", "EUR");
+        JSONArray list = HttpClientCoin.httpStart(price, waehrung, limit);
+
+        System.out.println("=====Kurswert[EUR]-Top5=====");      
+        printlist(list, price, waehrung);
+        
+        list = sortTopMover(list, percent_change_24h, waehrung);
         System.out.println("=====TopMover[%]-Top5=====");
-        printlist(list, "percent_change_24h", "EUR");
+        printlist(list, percent_change_24h, waehrung);
           
     }
 
