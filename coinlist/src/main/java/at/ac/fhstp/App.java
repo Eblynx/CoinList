@@ -34,7 +34,7 @@ class App {
     {
         for(int i=0; i < list.length(); ++i)
         {
-            System.out.print("Coin: "+list.getJSONObject(i).getString("name")+" | "+type+": ");
+            System.out.print("Token: "+list.getJSONObject(i).getString("name")+" | "+type+": ");
             System.out.println(list.getJSONObject(i).getJSONObject("quote").getJSONObject(waehrung).getDouble(type));
         }
     }
