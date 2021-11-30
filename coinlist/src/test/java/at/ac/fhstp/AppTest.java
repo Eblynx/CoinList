@@ -18,7 +18,7 @@ public class AppTest {
     {
         final String apiKey = "ab1ef4d4-7ad7-4c7f-838c-d2d8b13112c0";
         CloseableHttpClient client = HttpClientBuilder.create().build();    
-        HttpGet request = new HttpGet("https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?cryptocurrency_type=tokens");
+        HttpGet request = new HttpGet("https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest");
         request.addHeader("X-CMC_PRO_API_KEY", apiKey);
         CloseableHttpResponse response = client.execute(request);
         int statusCode = response.getStatusLine().getStatusCode();
