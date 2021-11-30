@@ -1,35 +1,30 @@
 package at.ac.fhstp;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.*;
 import java.io.IOException;
-
-import org.apache.http.HttpResponse;
-
+import org.apache.http.HttpStatus;
 import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpUriRequest;
-import org.apache.http.entity.ContentType;
+import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.junit.jupiter.api.Test;
 
 public class AppTest {
 
-    // simple request - response
-
- 
     @Test
-    public void givenRequestWithNoAcceptHeader_whenRequestIsExecuted_thenDefaultResponseContentTypeIsJson() throws ClientProtocolException, IOException {
-        // Given
-        final String jsonMimeType = "application/json";
-        final HttpUriRequest request = new HttpGet("https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?cryptocurrency_type=tokens");
-
-        // When
-        final HttpResponse response = HttpClientBuilder.create().build().execute(request);
-
-        // Then
-        final String mimeType = ContentType.getOrDefault(response.getEntity()).getMimeType();
-        assertEquals(jsonMimeType, mimeType);
+    public void checkAPIKey_checkAPI() throws ClientProtocolException, IOException 
+    {
+        final String apiKey = "ab1ef4d4-7ad7-4c7f-838c-d2d8b13112c0";
+        CloseableHttpClient client = HttpClientBuilder.create().build();    
+        HttpGet request = new HttpGet("https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?cryptocurrency_type=tokens");
+        request.addHeader("X-CMC_PRO_API_KEY", apiKey);
+        CloseableHttpResponse response = client.execute(request);
+        int statusCode = response.getStatusLine().getStatusCode();
+        assertThat(statusCode, equalTo(HttpStatus.SC_OK));
+        System.out.println("API und API-Key funktionieren korrekt");
     }
+
 
 }
