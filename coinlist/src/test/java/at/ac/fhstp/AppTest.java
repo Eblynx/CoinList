@@ -8,7 +8,8 @@ import java.net.http.HttpResponse;
 import org.apache.http.HttpStatus;
 import org.junit.jupiter.api.Test;
 
-public class AppTest {
+public class AppTest 
+{
 
 
     @Test

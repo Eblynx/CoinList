@@ -34,7 +34,6 @@ public class HttpClientToken
             .send(req, HttpResponse.BodyHandlers.ofString());
 
             return res;
-            
         } 
         
         catch (IOException e) 
