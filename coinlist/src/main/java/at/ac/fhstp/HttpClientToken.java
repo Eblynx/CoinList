@@ -8,14 +8,15 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
-public class HttpClientCoin 
+public class HttpClientToken 
 {
     private static final String apiKey = "ab1ef4d4-7ad7-4c7f-838c-d2d8b13112c0";
 
 
-    public static JSONArray httpStart(String type, String currency, int limit) throws URISyntaxException
+    public static HttpResponse<String> httpStart(String type, String currency, int limit) throws URISyntaxException
     {    
         URI uri = new URI("https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?cryptocurrency_type=tokens&sort="+type+"&convert="+currency+"&limit="+limit);
         try 
@@ -32,11 +33,7 @@ public class HttpClientCoin
             .build()
             .send(req, HttpResponse.BodyHandlers.ofString());
 
-            res.statusCode();
-
-            JSONArray listorg = new JSONObject(res.body()).getJSONArray("data");
-
-            return listorg;
+            return res;
             
         } 
         
@@ -51,6 +48,12 @@ public class HttpClientCoin
         }
         
         return null;
+    }
+
+    public static JSONArray httpJSONArray(String type, String currency, int limit) throws JSONException, URISyntaxException
+    {
+        JSONArray listorg = new JSONObject(httpStart(type, currency, limit).body()).getJSONArray("data");
+        return listorg;
     }
     
 }

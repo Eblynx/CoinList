@@ -14,9 +14,9 @@ class App {
         String price = "price";
         String currency = "EUR";
         String percent_change_24h = "percent_change_24h";
-        int limit = 150;
+        int limit = 5;
         
-        JSONArray jarray = HttpClientCoin.httpStart(price, currency, limit);
+        JSONArray jarray = HttpClientToken.httpJSONArray(price, currency, limit);
 
         System.out.println("=====Kurswert[EUR]-Top"+limit+"=====");      
         printlist(jarray, price, currency);
