@@ -22,7 +22,7 @@ public class AppTest {
     public void givenRequestWithNoAcceptHeader_whenRequestIsExecuted_thenDefaultResponseContentTypeIsJson() throws ClientProtocolException, IOException {
         // Given
         final String jsonMimeType = "application/json";
-        final HttpUriRequest request = new HttpGet("https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?cryptocurrency_type=tokens&sort=");
+        final HttpUriRequest request = new HttpGet("https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?cryptocurrency_type=tokens");
 
         // When
         final HttpResponse response = HttpClientBuilder.create().build().execute(request);
