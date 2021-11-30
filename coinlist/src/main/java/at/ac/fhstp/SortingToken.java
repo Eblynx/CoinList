@@ -5,13 +5,13 @@ import java.util.Comparator;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class SortingCoin implements Comparator<JSONObject> {
+public class SortingToken implements Comparator<JSONObject> {
 
     
     private String type;
     private String waehrung;
 
-    public SortingCoin(String type, String waehrung) {
+    public SortingToken(String type, String waehrung) {
         this.type = type;
         this.waehrung = waehrung;
     }
