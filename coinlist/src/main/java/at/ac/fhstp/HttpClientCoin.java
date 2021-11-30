@@ -32,6 +32,8 @@ public class HttpClientCoin
             .build()
             .send(req, HttpResponse.BodyHandlers.ofString());
 
+            res.statusCode();
+
             JSONArray listorg = new JSONObject(res.body()).getJSONArray("data");
 
             return listorg;
