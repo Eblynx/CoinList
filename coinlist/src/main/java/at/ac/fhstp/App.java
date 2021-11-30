@@ -18,9 +18,9 @@ class App {
         
         JSONArray list = HttpClientCoin.httpStart("price", "EUR", 5);
         printlist(list, "price", "EUR");
-        JSONArray nlist = sortTopMover(list, "percent_change_24h", "EUR");
+        list = sortTopMover(list, "percent_change_24h", "EUR");
         System.out.println("=====TopMover[%]-Top5=====");
-        printlist(nlist, "percent_change_24h", "EUR");
+        printlist(list, "percent_change_24h", "EUR");
           
     }
 
