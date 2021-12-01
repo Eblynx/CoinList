@@ -27,15 +27,15 @@ public class AppTest
     @Test
     public void ExceptionThrown() 
     {
-    Exception exception = assertThrows(NumberFormatException.class, () -> 
-    {
-        Integer.parseInt("1a");
-    });
-    String expectedMessage = "For input string";
-    String actualMessage = exception.getMessage();
+        Exception exception = assertThrows(NumberFormatException.class, () -> 
+        {
+            Integer.parseInt("1a");
+        });
+        String expectedMessage = "For input string";
+        String actualMessage = exception.getMessage();
 
-    assertTrue(actualMessage.contains(expectedMessage));
-    System.out.println(expectedMessage);
+        assertTrue(actualMessage.contains(expectedMessage));
+        System.out.println(expectedMessage);
     } 
 
     @Test
@@ -51,4 +51,4 @@ public class AppTest
 
         assertTrue(thrown.getMessage().contains("null"));
     } 
-    }
+}
