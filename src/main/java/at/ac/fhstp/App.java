@@ -15,7 +15,7 @@ class App {
     public static void main(String[] args) throws URISyntaxException
     {       
         //Definierung der Forderungen in Variablen
-        String price = "pri", type = "tokens", percent_change_24h = "percent_change_24h", limit = "5", currency = "EUR";
+        String price = "price", type = "tokens", percent_change_24h = "percent_change_24h", limit = "5", currency = "EUR";
         
         //Zusammenbau der API-Url
         URL url = new URLBuilder(mainurl).type(type).currency(currency).sort(price).limit(limit).build();
