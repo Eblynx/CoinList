@@ -15,18 +15,20 @@ import org.junit.jupiter.api.Test;
 
 public class AppTest 
 {
-   /*@Test
+   @Test
     public void checkAPIKey_checkAPI() throws URISyntaxException, IOException, InterruptedException
     {
-        URL url = new URLBuilder(url)
-        HttpResponse<String> res = HttpClientToken.httpStart(url.getURL());
+        final String url = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest";
+        HttpResponse<String> res = HttpClientToken.httpStart(url);
         assertThat(res.statusCode(), equalTo(HttpStatus.SC_OK));
         System.out.println("API und API-Key funktionieren korrekt");
-    }*/
+    }
 
     @Test
-public void ExceptionThrown() {
-    Exception exception = assertThrows(NumberFormatException.class, () -> {
+    public void ExceptionThrown() 
+    {
+    Exception exception = assertThrows(NumberFormatException.class, () -> 
+    {
         Integer.parseInt("1a");
     });
     String expectedMessage = "For input string";
@@ -34,17 +36,19 @@ public void ExceptionThrown() {
 
     assertTrue(actualMessage.contains(expectedMessage));
     System.out.println(expectedMessage);
-} 
-@Test
-void exceptionTesting() {
-    String httpStr = null;
-    NullPointerException thrown = assertThrows(
-        NullPointerException.class,
-           () -> HTTP.toJSONObject(httpStr),
-           "Expected doThing() to throw, but it didn't"
-    );
-    System.out.println("Inhalt der JSON Datei ist "+ httpStr);
+    } 
 
-    assertTrue(thrown.getMessage().contains("null"));
-} 
-}
+    @Test
+    void exceptionTesting() 
+    {
+        String httpStr = null;
+        NullPointerException thrown = assertThrows(
+            NullPointerException.class,
+            () -> HTTP.toJSONObject(httpStr),
+            "Expected doThing() to throw, but it didn't"
+        );
+        System.out.println("Inhalt der JSON Datei ist "+ httpStr);
+
+        assertTrue(thrown.getMessage().contains("null"));
+    } 
+    }
