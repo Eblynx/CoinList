@@ -18,7 +18,7 @@ class App
         
         try 
         {
-            //Zusammenbau der API-Url
+            //Zusammenbau der API-URL
             URL url = new URLBuilder(mainurl).type(type).currency(currency).sort(price).limit(limit).build();
            
             //JSON Array durch die Abfrage der API (bekommt ein JSON String zurück)
