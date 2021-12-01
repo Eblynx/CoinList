@@ -5,8 +5,6 @@ import java.util.stream.IntStream;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-
-
 class App {
 
     //API Schnittstelle
