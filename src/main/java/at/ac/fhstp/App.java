@@ -23,7 +23,7 @@ class App
         JSONArray jarray = HttpClientToken.httpJSONArray(url.getFinalURL());
         
         //Ausgabe der jeweiligen Soriterung via API
-        System.out.println("=====Kurswert[EUR]-Top"+limit+"=====");     
+        System.out.println("=====Market Value[EUR]-Top"+limit+"=====");     
         printlist(jarray, price, currency);
 
         //Andere Sortierung des aktuellen geladenen JSON Array
