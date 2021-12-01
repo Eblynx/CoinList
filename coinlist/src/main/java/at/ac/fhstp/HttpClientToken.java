@@ -16,9 +16,9 @@ public class HttpClientToken
     private static final String apiKey = "ab1ef4d4-7ad7-4c7f-838c-d2d8b13112c0";
 
 
-    public static HttpResponse<String> httpStart(String type, String currency, int limit) throws URISyntaxException
+    public static HttpResponse<String> httpStart(String url) throws URISyntaxException
     {    
-        URI uri = new URI("https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?cryptocurrency_type=tokens&sort="+type+"&convert="+currency+"&limit="+limit);
+        URI uri = new URI(url);
         try 
         {
             HttpRequest req = HttpRequest
@@ -49,9 +49,9 @@ public class HttpClientToken
         return null;
     }
 
-    public static JSONArray httpJSONArray(String type, String currency, int limit) throws JSONException, URISyntaxException
+    public static JSONArray httpJSONArray(String url) throws JSONException, URISyntaxException
     {
-        JSONArray listorg = new JSONObject(httpStart(type, currency, limit).body()).getJSONArray("data");
+        JSONArray listorg = new JSONObject(httpStart(url).body()).getJSONArray("data");
         return listorg;
     }
     
