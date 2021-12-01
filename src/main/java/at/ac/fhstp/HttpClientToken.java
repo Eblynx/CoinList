@@ -25,7 +25,8 @@ public class HttpClientToken
             HttpRequest req = HttpRequest
             .newBuilder()
             .uri(uri)
-            .header("X-CMC_PRO_API_KEY", apiKey)
+            .setHeader("Accept", "application/json")
+            .setHeader("X-CMC_PRO_API_KEY", apiKey)
             .GET()
             .build();
             

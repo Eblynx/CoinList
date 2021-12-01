@@ -1,5 +1,8 @@
 package at.ac.fhstp;
 
+import java.net.URISyntaxException;
+import java.net.http.HttpResponse;
+
 public class URLBuilder 
 {
     private final String url;
@@ -37,9 +40,20 @@ public class URLBuilder
         return this;
     }
 
-    public URL build() {
+    public URL build() throws URISyntaxException {
         URL uri =  new URL(url+"?", type, sort, currency, limit);
+        validateURL(uri.getFinalURL());
         return uri;
+    }
+
+    public void validateURL(String checkurl) throws URISyntaxException 
+    {
+        HttpResponse<String> res = HttpClientToken.httpStart(checkurl);
+        if(res.statusCode()!=200)
+        {
+            System.err.println("Invalid URL");
+            //to do exception
+        }
     }
     
 }
