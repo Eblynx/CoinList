@@ -16,6 +16,7 @@ public class HttpClientToken
     private static final String apiKey = "ab1ef4d4-7ad7-4c7f-838c-d2d8b13112c0";
 
 
+    //HTTP Response als HttpResponse <String> als Return
     public static HttpResponse<String> httpStart(String url) throws URISyntaxException
     {    
         URI uri = new URI(url);
@@ -49,6 +50,7 @@ public class HttpClientToken
         return null;
     }
 
+    //Hier wird mit dem httpresponse das JSONArray zusammengbaut und gibt es zurück
     public static JSONArray httpJSONArray(String url) throws JSONException, URISyntaxException
     {
         JSONArray listorg = new JSONObject(httpStart(url).body()).getJSONArray("data");

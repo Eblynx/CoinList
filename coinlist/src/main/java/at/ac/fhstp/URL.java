@@ -18,10 +18,11 @@ public class URL
         this.limit = limit;
     }
 
-    public String getURL()
+    //Baut die "finale" URL zusammen
+    public String getFinalURL()
     {
-        String uri = url+type+currency+sort+limit;
-        return uri;
+        String furl = url+type+currency+sort+limit;
+        return furl;
     }
 
 }

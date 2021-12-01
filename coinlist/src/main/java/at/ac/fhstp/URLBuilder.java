@@ -8,7 +8,6 @@ public class URLBuilder
     private String currency = "";
     private String limit = "";
 
-
     public URLBuilder(String url) 
     {
         this.url = url;
@@ -40,7 +39,6 @@ public class URLBuilder
 
     public URL build() {
         URL uri =  new URL(url+"?", type, sort, currency, limit);
-        
         return uri;
     }
     
