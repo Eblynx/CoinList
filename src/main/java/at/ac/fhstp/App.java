@@ -5,7 +5,8 @@ import java.util.stream.IntStream;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-class App {
+class App 
+{
 
     //API Schnittstelle
     private static final String mainurl = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest";
