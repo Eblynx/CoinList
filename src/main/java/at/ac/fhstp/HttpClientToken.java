@@ -54,8 +54,8 @@ public class HttpClientToken
     //Hier wird mit dem httpresponse das JSONArray zusammengbaut und gibt es zurück
     public static JSONArray httpJSONArray(String url) throws JSONException, URISyntaxException
     {
-        JSONArray listorg = new JSONObject(httpStart(url).body()).getJSONArray("data");
-        return listorg;
+        JSONArray jarray = new JSONObject(httpStart(url).body()).getJSONArray("data");
+        return jarray;
     }
     
 }
