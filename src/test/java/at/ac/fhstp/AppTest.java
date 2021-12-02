@@ -28,24 +28,19 @@ public class AppTest
     @Test
     public void ExceptionThrown() 
     {
-        Exception exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
          URL url = new URLBuilder("").build();    
          
         });
-        
-        Assertions.assertEquals("URI with undefined scheme", exception.getMessage());
         System.out.println("URI with undefined scheme"); 
     } 
 
     @Test
     public void ExceptionThrownURL() 
     {
-        Exception exception = Assertions.assertThrows(URLFailedException.class, () -> {
+        Assertions.assertThrows(URLFailedException.class, () -> {
          URL url = new URLBuilder("https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest").limit("a").build();    
-         
         });
-         
-        Assertions.assertEquals("URL not valid", exception.getMessage());
         System.out.println("URL not valid");
     } 
 
