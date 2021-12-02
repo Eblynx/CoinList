@@ -32,7 +32,7 @@ class App
             System.out.println("=====TopMover[%]-Top"+limit+"=====");
             sorting(jarray, percent_change_24h, currency);
         } 
-        catch (JSONException | NullPointerException | URISyntaxException | URLFailedException e) 
+        catch (IllegalArgumentException | JSONException | NullPointerException | URISyntaxException | URLFailedException e) 
         {
             System.out.println("Error: "+e.getMessage());
         }
