@@ -30,7 +30,7 @@ class App
 
             //Andere Sortierung des aktuellen geladenen JSON Array
             System.out.println("=====TopMover[%]-Top"+limit+"=====");
-            sort(jarray, percent_change_24h, currency);
+            sorting(jarray, percent_change_24h, currency);
         } 
         catch (JSONException | NullPointerException | URISyntaxException | URLFailedException e) 
         {
@@ -47,7 +47,7 @@ class App
         }
     }
     
-    public static void sort(JSONArray jarray, String sort, String currency) throws URISyntaxException
+    public static void sorting(JSONArray jarray, String sort, String currency) throws URISyntaxException
     {       
         IntStream.range(0, jarray.length())
         .mapToObj(i -> (JSONObject) jarray.getJSONObject(i))
