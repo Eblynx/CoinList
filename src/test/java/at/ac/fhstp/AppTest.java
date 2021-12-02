@@ -2,15 +2,16 @@ package at.ac.fhstp;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.http.HttpResponse;
-import org.apache.http.HttpStatus;
-import org.json.HTTP;
 
+
+import org.apache.http.HttpStatus;
+
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class AppTest 
@@ -27,28 +28,25 @@ public class AppTest
     @Test
     public void ExceptionThrown() 
     {
-        Exception exception = assertThrows(NumberFormatException.class, () -> 
-        {
-            Integer.parseInt("1a");
+        Exception exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+         URL url = new URLBuilder("").build();    
+         
         });
-        String expectedMessage = "For input string";
-        String actualMessage = exception.getMessage();
-
-        assertTrue(actualMessage.contains(expectedMessage));
-        System.out.println(expectedMessage);
+        
+        Assertions.assertEquals("URI with undefined scheme", exception.getMessage());
+        System.out.println("URI with undefined scheme"); 
     } 
 
     @Test
-    void exceptionTesting() 
+    public void ExceptionThrownURL() 
     {
-        String httpStr = null;
-        NullPointerException thrown = assertThrows(
-            NullPointerException.class,
-            () -> HTTP.toJSONObject(httpStr),
-            "Expected doThing() to throw, but it didn't"
-        );
-        System.out.println("Inhalt der JSON Datei ist "+ httpStr);
-
-        assertTrue(thrown.getMessage().contains("null"));
+        Exception exception = Assertions.assertThrows(URLFailedException.class, () -> {
+         URL url = new URLBuilder("https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest").limit("a").build();    
+         
+        });
+         
+        Assertions.assertEquals("URL not valid", exception.getMessage());
+        System.out.println("URL not valid");
     } 
+
 }
