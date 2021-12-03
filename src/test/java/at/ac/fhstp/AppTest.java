@@ -29,7 +29,7 @@ public class AppTest
     public void ExceptionThrown() 
     {
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
-         URL url = new URLBuilder("").build();    
+        new URLBuilder("").build();    
          
         });
         System.out.println("URI with undefined scheme"); 
@@ -39,7 +39,7 @@ public class AppTest
     public void ExceptionThrownURL() 
     {
         Assertions.assertThrows(URLFailedException.class, () -> {
-         URL url = new URLBuilder("https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest").limit("a").build();    
+        new URLBuilder("https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest").limit("a").build();    
         });
         System.out.println("URL not valid");
     } 
